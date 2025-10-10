@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday, Bestie! 🎉</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent1:#ff6b6b;
+      --accent2:#ffd93d;
+      --accent3:#6be3ff;
+      --text:#e6eef8;
+      --muted:#9fb2c8;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial;}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(107,227,255,0.06), transparent),
+                  radial-gradient(800px 400px at 90% 80%, rgba(255,107,107,0.04), transparent),
+                  linear-gradient(180deg,var(--bg) 0%, #071024 100%);
+      color:var(--text);
+      display:flex;align-items:center;justify-content:center;padding:40px;
+    }
+
+    /* Card */
+    .card{
+      width:min(920px,96%);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px;padding:36px;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.6);
+      display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;
+    }
+
+    /* Left content */
+    .left{padding:12px}
+    h1{font-size:clamp(28px,4vw,46px);margin:6px 0 6px;line-height:1.02}
+    h1 .spark{display:inline-block;font-weight:800;background:linear-gradient(90deg,var(--accent1),var(--accent3));-webkit-background-clip:text;background-clip:text;color:transparent}
+    p.lead{color:var(--muted);margin:8px 0 18px;font-size:16px}
+
+    .message{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      padding:18px;border-radius:12px;font-size:15px;line-height:1.5;color:var(--text);
+    }
+
+    /* Heart badge */
+    .badge{display:inline-flex;align-items:center;gap:10px;margin-top:16px}
+    .heart{
+      width:54px;height:54px;border-radius:14px;background:linear-gradient(180deg,var(--accent1),#ff9aa2);
+      display:grid;place-items:center;box-shadow:0 8px 20px rgba(255,107,107,0.12);
+      transform-origin:center;animation:pulse 1.6s infinite ease-in-out;
+    }
+    .heart svg{width:28px;height:28px;filter:drop-shadow(0 6px 14px rgba(255,107,107,0.12));}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+
+    /* Right side - balloons & confetti */
+    .right{position:relative;padding:12px;display:flex;align-items:center;justify-content:center}
+    .scene{width:380px;height:320px;position:relative}
+
+    /* Balloons */
+    .balloon{position:absolute;bottom:10px;border-radius:50% 50% 50% 50%;width:110px;height:140px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#061426}
+    .string{position:absolute;left:50%;transform:translateX(-50%);width:2px;height:70px;background:linear-gradient(180deg,#cbd8e6,transparent);bottom:-66px}
+    .balloon.small{width:80px;height:100px}
+    .b1{left:18%;background:linear-gradient(180deg,var(--accent2),#ffd36f);animation:float 6s ease-in-out infinite;animation-delay:0s}
+    .b2{left:46%;background:linear-gradient(180deg,var(--accent1),#ff9aa2);animation:float 5.6s ease-in-out infinite;animation-delay:0.2s}
+    .b3{left:74%;background:linear-gradient(180deg,var(--accent3),#7fe8ff);animation:float 6.4s ease-in-out infinite;animation-delay:0.4s}
+    @keyframes float{0%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-26px) rotate(6deg)}100%{transform:translateY(0) rotate(-6deg)}}
+
+    /* Confetti - created by many spans */
+    .confetti{position:absolute;inset:0;pointer-events:none}
+    .confetti span{position:absolute;display:block;opacity:0.95;width:10px;height:14px;border-radius:2px;transform-origin:center;animation:confetti-fall linear infinite}
+    @keyframes confetti-fall{0%{transform:translateY(-20vh) rotate(0) scale(1)}100%{transform:translateY(110vh) rotate(720deg) scale(0.95)}}
+
+    /* generate variety using nth-child */
+    .confetti span:nth-child(1){left:5%;top:-10%;background:var(--accent1);animation-duration:5.4s;animation-delay:0.2s}
+    .confetti span:nth-child(2){left:12%;top:-20%;background:var(--accent2);animation-duration:6s;animation-delay:0.6s}
+    .confetti span:nth-child(3){left:20%;top:-15%;background:var(--accent3);animation-duration:6.8s;animation-delay:0.1s}
+    .confetti span:nth-child(4){left:28%;top:-30%;background:#a78bfa;animation-duration:5.2s;animation-delay:0.9s}
+    .confetti span:nth-child(5){left:36%;top:-18%;background:#55efc4;animation-duration:7.1s;animation-delay:0.3s}
+    .confetti span:nth-child(6){left:44%;top:-12%;background:#ffd1dc;animation-duration:5.9s;animation-delay:0.8s}
+    .confetti span:nth-child(7){left:52%;top:-22%;background:#ffd93d;animation-duration:6.5s;animation-delay:0.4s}
+    .confetti span:nth-child(8){left:60%;top:-8%;background:#ffb3c6;animation-duration:5.1s;animation-delay:0.2s}
+    .confetti span:nth-child(9){left:68%;top:-28%;background:#7be495;animation-duration:7.4s;animation-delay:0.6s}
+    .confetti span:nth-child(10){left:76%;top:-16%;background:#6be3ff;animation-duration:6.2s;animation-delay:0.3s}
+    .confetti span:nth-child(11){left:84%;top:-26%;background:#ff8fb1;animation-duration:5.7s;animation-delay:0.7s}
+    .confetti span:nth-child(12){left:92%;top:-14%;background:#ffd93d;animation-duration:6.6s;animation-delay:0.25s}
+
+    /* Cake button */
+    .cta{display:inline-flex;align-items:center;gap:12px;margin-top:18px}
+    .btn{
+      background:linear-gradient(90deg,var(--accent3),var(--accent1));padding:12px 18px;border-radius:12px;color:#041023;font-weight:700;border:none;cursor:pointer;box-shadow:0 10px 30px rgba(6,20,36,0.5);transform:translateY(0);transition:transform .18s ease}
+    .btn:active{transform:translateY(2px)}
+
+    /* small footer */
+    .from{font-size:13px;color:var(--muted);margin-top:8px}
+
+    /* Responsive */
+    @media(max-width:880px){
+      .card{grid-template-columns:1fr;gap:18px}
+      .right{order:-1}
+      .scene{width:100%;height:220px}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <h1>Happy Birthday, <span class="spark">Yani🌸</span></h1>
+      <p class="lead"></p>
+
+      <div class="message">
+        <ul>
+          <li>Thanks for all laugh and memories</li>
+          <li>I am very blessed by have you in my life</li>
+          <li>May ur all problems get resolved😊</li>
+        </ul>
+        <div class="badge">
+          <span class="heart" aria-hidden>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 20s-7-4.35-9-7.5C-0.1 8.3 4.7 3 9.5 6.5 12 8.6 12 8.6 12 8.6s0-0 2.5-2.1C19.3 3 24.1 8.3 21 12.5 19 15.65 12 20 12 20z" fill="#fff" opacity="0.9"/>
+            </svg>
+          </span>
+          <div>
+            <div style="font-weight:700">Happy Birthday Meri Rasmalai🧿💮</div>
+            <div style="font-size:13px;color:var(--muted)">Thanks for being you — today and every day ✨</div>
+          </div>
+        </div>
+
+        <div class="cta">
+          <button class="btn" onclick="spinTitle()">Click here</button>
+          <div class="from">— Best Wishes , <strong>Shivam</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="scene" aria-hidden>
+        <!-- Balloons -->
+        <div class="balloon b1">16<div class="string"></div></div>
+        <div class="balloon b2 small">Oct<div class="string"></div></div>
+        <div class="balloon b3">2025<div class="string"></div></div>
+
+        <!-- Confetti -->
+        <div class="confetti">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Small JS helper to add a quick title spin when button clicked
+    function spinTitle(){
+      const h = document.querySelector('h1');
+      h.animate([
+        { transform: 'rotate(0) scale(1)' },
+        { transform: 'rotate(-6deg) scale(1.02)' },
+        { transform: 'rotate(6deg) scale(1.02)' },
+        { transform: 'rotate(0) scale(1)' }
+      ],{duration:700,iterations:1,easing:'ease-in-out'});
+
+      // small confetti burst
+      const confetti = document.querySelectorAll('.confetti span');
+      confetti.forEach((el,i)=>{
+        el.animate([
+          { transform: `translateY(${Math.random()*-50-20}vh) rotate(${Math.random()*360}deg)`, opacity:1},
+          { transform: `translateY(${Math.random()*80+80}vh) rotate(${Math.random()*1440}deg)`, opacity:0.8 }
+        ],{duration:900 + Math.random()*800,delay:i*30,easing:'cubic-bezier(.2,.9,.3,1)'});
+      });
+    }
+  </script>
+</body>
+</html>
